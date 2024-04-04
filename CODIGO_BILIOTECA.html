@@ -1,0 +1,118 @@
+use BIBLIOTECA
+--CREANDO TABLA LIBRO
+create table Libro
+(id_libro int primary key identity (1,1),
+titulo_libro  varchar (30),
+editorial_libro varchar (40),
+area_libro varchar (20),
+ );
+
+ -- CREANDO TABLA AUTORES
+ create table datos_autores
+ (id_autor int primary key identity (1,1),
+ Nonbre_autor varchar(80),
+ nacionalidad_autor varchar(50),
+ );
+
+ -- CREANDO TABLA LIBROS POR AUTOR
+ create table libroAuto
+ (
+ id_autor int,
+ id_libro int,
+ constraint fk_datos_autores_libroAuto foreign key(id_autor) references datos_autores(id_autor),
+ constraint fk_Libro_libroAuto foreign key(id_libro) references Libro(id_libro),
+ );
+
+ -- CREANDO TABLA DE ESTUDIANTE
+ create table estudiante
+ (id_estudiante int primary key identity (1,1),
+ nombre_estudiante varchar (100),
+ apellido_estudiante varchar (100),
+ carrera_estudiante varchar (80),
+ edad_estudiante int,
+ );
+
+ --CREANDO TABLA DE PRESTAMOS
+
+ create table prestamos
+ (
+ id_estudiante int,
+ id_libro int,
+ fechaprestamo_prest date,
+ fechadevolucion_preset date,
+ constraint fk_estudiante_prestamos foreign key( id_estudiante) references estudiante( id_estudiante),
+  constraint fk_Libro_prestamos foreign key( id_libro) references Libro(id_libro),
+ );
+
+ --INGRESANDO DATOS A LAS TABLAS
+
+ -- LIBRO
+ insert into Libro values ('Cien años de soledad',' las luciernagas', 'literatura')
+ insert into Libro values ('Culpa mía ','B de Bolsillo', 'literatura')
+ insert into Libro values ('El Ángel de la Ciudad','Editorial Planeta', 'literatura')
+ insert into Libro values ('La teoría del amor','Contraluz Editorial', 'comedia')
+ insert into Libro values ('La rebelión de los buenos','Editorial Planeta', 'Novela')
+ insert into Libro values ('El nido del cuco','Editorial Planeta', 'literatura')
+ insert into Libro values ('BAJO LA PUERTA DE LOS SUSURROS','Editorial Planeta', 'literatura')
+ insert into Libro values ('TRES MESES (MESES A TU LADO 3)','  MONTENA', 'literatura')
+ insert into Libro values ('La vida es simple','Ediciones Paidós,', 'ciencia')
+ insert into Libro values ('La costumbre ensordece','Editorial Ariel', 'ciencia')
+ select * from Libro
+
+ -- INGRESANDO DATOS TABLA 
+ -- AUTORES
+ insert into datos_autores values ('Gabriel García Márquez','Colombia ')
+insert into datos_autores values ('Ron Mercedes','Español')
+insert into datos_autores  values ('garcia saenz de urturi eva','España ')
+insert into  datos_autores values ('Hazelwood Ali','Italiano')
+insert into datos_autores values ('Roberto Santiago','España')
+insert into datos_autores values ('Camilla Läckberg','sueca')
+insert into datos_autores values ('T.J. Klune','Estados Unidos')
+insert into datos_autores values ('Joana Marcús','España')
+insert into datos_autores values ('Johnjoe McFadden','Irlanda')
+insert into datos_autores values ('Miguel A. Delgado','España')
+
+--INGRESANDO DATOS TABLA ESTUDIANTE
+--estudiante
+insert into estudiante values('Carlos ','Vasquez','B° transito','Programacio','17')
+insert into estudiante values('Denis ','Portillo','B° transito','informatica','17')
+insert into estudiante values('Jonathan','Candray','canton la cruz','Diseño','16')
+insert into estudiante values('Telma','Chavez','el limite','medicina','17')
+insert into estudiante values('Gabriel','Trujillo','canton la cruz','leyes','17')
+insert into estudiante values('Oswaldo','Perez','B° el transito','contaduria','18')
+insert into estudiante values('Adalberto','Rafel','colonia la esperanza','Programacion','19')
+insert into estudiante values('Marvin','Gonzales','canton san bartolo','Diseño','18')
+insert into estudiante values('Eduardo','Perez','colonia la esperanza','ingeniero','19')
+insert into estudiante values('Alejandro','Gomez','losnaranjos','ingeniero','18')
+--INGRESANDO DATOS TABLA DE libroAuto
+insert into  libroAuto values(1,1)
+insert into  libroAuto values(2,2)
+insert into  libroAuto values(3,3)
+insert into  libroAuto values(4,4)
+insert into  libroAuto values(5,5)
+insert into libroAuto values(6,6)
+insert into  libroAuto values(7,7)
+insert into  libroAuto values(8,8)
+insert into  libroAuto values(9,9)
+insert into  libroAuto values(10,10)
+--INGRESANDO DATOS TABLA PRESTAMOS 
+--prestamos
+insert into  prestamos values(1,1,'12/02/23','12/04/23')
+insert into  prestamos values(2,2,'12/02/23','12/04/23')
+insert into  prestamos values(3,3,'12/02/23','12/04/23')
+insert into  prestamos values(4,4,'12/02/23','12/04/23')
+insert into  prestamos values(5,5,'12/02/23','12/04/23')
+insert into  prestamos values(6,6,'12/02/23','12/04/23')
+insert into  prestamos values(7,7,'12/02/23','12/04/23')
+insert into  prestamos values(8,8,'12/02/23','12/04/23')
+insert into  prestamos values(9,9,'12/02/23','12/04/23')
+insert into  prestamos values(10,10,'12/02/23','12/04/23')
+
+select * from Libro
+select * from datos_autores
+select * from estudiante
+select * from libroAuto
+select * from prestamos
+
+
+
